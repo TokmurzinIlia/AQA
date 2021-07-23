@@ -10,7 +10,7 @@ public class TestMetod {
     //static {System.setProperty("webdriver.chrome.driver","D:\\ДЗ QA\\Chrome Driver\\chromedriver.exe");}
 
 WebDriver startDriver() {
-    System.setProperty("webdriver.chrome.driver", "D:\\Intelij\\Test\\Test\\src\\main\\resources\\chromedriver.exe");
+    System.setProperty("webdriver.chrome.driver", "Test/src/main/resources/chromedriver.exe");
     // с относительным "src/main/resources/chromedriver.exe" не работает
 
     ChromeOptions options = new ChromeOptions();
