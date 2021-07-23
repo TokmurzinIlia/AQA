@@ -10,7 +10,8 @@ public class TestMetod {
     //static {System.setProperty("webdriver.chrome.driver","D:\\ДЗ QA\\Chrome Driver\\chromedriver.exe");}
 
 WebDriver startDriver() {
-    System.setProperty("webdriver.chrome.driver", "D:\\ДЗ QA\\Chrome Driver/chromedriver.exe");
+    System.setProperty("webdriver.chrome.driver", "D:\\Intelij\\Test\\Test\\src\\main\\resources\\chromedriver.exe");
+    // с относительным "src/main/resources/chromedriver.exe" не работает
 
     ChromeOptions options = new ChromeOptions();
     options.addArguments("--start-maximized");
@@ -81,8 +82,8 @@ WebDriver startDriver() {
         driver.findElement(By.id("address_country_us")).click();
         driver.findElement(By.id("address_birthday")).clear();
         driver.findElement(By.id("address_birthday")).sendKeys("30.08.1980");
-//        driver.findElement(By.id("address_color")).click();
-//        driver.findElement(By.id("address_color")).sendKeys("25 25 45");
+        driver.findElement(By.id("address_color")).click();
+        driver.findElement(By.id("address_color")).sendKeys("25.25.45");
         driver.findElement(By.id("address_age")).clear();
         driver.findElement(By.id("address_age")).sendKeys("40");
         driver.findElement(By.id("address_website")).clear();
