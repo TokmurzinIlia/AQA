@@ -17,7 +17,7 @@ public class TestRandom {
         metods.openSite();
         String pageTitle = driver.getTitle();
 
-        Assertions.assertEquals("Addres Book", pageTitle,
+        Assertions.assertEquals("Address Book", pageTitle,
                 "Открыта не требуемая страница или название страницы неверно");
         RepitMetod.quitDriver();
     }
