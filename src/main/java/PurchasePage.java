@@ -1,5 +1,6 @@
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -23,6 +24,7 @@ public class PurchasePage {
 
     public static final SelenideElement products = $(".title");
 
+    @Step("Purchase Tshirt Red Button")
     public void purchaseTshirtRedButton  () {
 
         addToCartTshirtRedButton.click();
@@ -33,7 +35,7 @@ public class PurchasePage {
         addToCartBikeLight.click();
 
     }
-
+    @Step("Purchase Back pack")
     public void purchaseBackpack  () {
 
         addToCartBackpack.click();
@@ -56,7 +58,7 @@ public class PurchasePage {
         removeBackpack.click();
 
     }
-
+    @Step("Go Basket")
     public void goBasket () {
 
         basketButton.click();

@@ -1,5 +1,6 @@
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.ElementsCollection;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byXpath;
@@ -15,9 +16,12 @@ public class TestMetod {
         Configuration.startMaximized = true;
 
     }
+    @Severity(SeverityLevel.BLOCKER)
+    @Description("Login test")
+    @Feature("Login")
     @Test
     @Order(1)
-    @DisplayName("Login")
+
 
     public void Login() {
         LoginPage loginPage = new LoginPage();
@@ -27,10 +31,12 @@ public class TestMetod {
         Assertions.assertEquals("PRODUCTS", PurchasePage.products.getText(), "User is not log in");
 
     }
-
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Shopping test")
+    @Feature("Shopping")
     @Test
     @Order(2)
-    @DisplayName("Shopping")
+
 
     public void shopping() {
 
@@ -55,10 +61,12 @@ public class TestMetod {
         Assertions.assertEquals("THANK YOU FOR YOUR ORDER", $("h2[class=\"complete-header\"]").getText(), "Error: order not completed");
         finishPage.backButton.click();
     }
-
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Shopping test")
+    @Feature("Shopping")
     @Test
     @Order(3)
-    @DisplayName("Clear Basket")
+
     public void clearBasket(){
         LoginPage loginPage = new LoginPage();
         PurchasePage purchasePage = new PurchasePage();
@@ -71,7 +79,9 @@ public class TestMetod {
         basketPage.deleteAllProducts();
         Assertions.assertEquals($$(byXpath("//div[@class='cart_item']")).size(),0);
     }
-
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Shopping test")
+    @Feature("Shopping")
     @Test
     @Order(4)
     @DisplayName("cancellation of purchases")
@@ -98,7 +108,12 @@ public class TestMetod {
         PurchasePage.products.shouldBe(visible);
         Assertions.assertEquals("PRODUCTS", PurchasePage.products.getText(), "User is not log in");
     }
-
+    @Flaky
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Shopping test")
+    @Feature("Shopping")
+    @Issue("OXZL-9")
+    @Link("https://iliatokmurzin.atlassian.net/browse")
     @Test
     @Order(5)
     @DisplayName("cancellation of purchase")
