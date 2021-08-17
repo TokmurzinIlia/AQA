@@ -62,8 +62,8 @@ public class TestMetod {
         finishPage.backButton.click();
     }
     @Severity(SeverityLevel.CRITICAL)
-    @Description("Shopping test")
-    @Feature("Shopping")
+    @Description("Clear basket")
+    @Feature("Basket")
     @Test
     @Order(3)
 
@@ -80,11 +80,11 @@ public class TestMetod {
         Assertions.assertEquals($$(byXpath("//div[@class='cart_item']")).size(),0);
     }
     @Severity(SeverityLevel.CRITICAL)
-    @Description("Shopping test")
-    @Feature("Shopping")
+    @Description("Cancellation of purchases")
+    @Feature("Cancellation of purchases")
     @Test
     @Order(4)
-    @DisplayName("cancellation of purchases")
+
 
     public void cancellationOfPurchases() {
 
@@ -110,8 +110,8 @@ public class TestMetod {
     }
     @Flaky
     @Severity(SeverityLevel.CRITICAL)
-    @Description("Shopping test")
-    @Feature("Shopping")
+    @Description("Cancellation of purchases")
+    @Feature("Cancellation of purchases")
     @Issue("OXZL-9")
     @Link("https://iliatokmurzin.atlassian.net/browse")
     @Test
