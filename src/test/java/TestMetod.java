@@ -25,7 +25,6 @@ public class TestMetod {
 
     public void Login() {
         LoginPage loginPage = new LoginPage();
-        loginPage.openLoginPage();
         loginPage.login();
         PurchasePage.products.shouldBe(visible);
         Assertions.assertEquals("PRODUCTS", PurchasePage.products.getText(), "User is not log in");
@@ -46,15 +45,12 @@ public class TestMetod {
         CheckoutOverviewPage checkoutOverviewPage = new CheckoutOverviewPage();
         CheckoutYourInformation checkoutYourInformation = new CheckoutYourInformation();
         FinishPage finishPage = new FinishPage();
-        loginPage.openLoginPage();
         loginPage.login();
         purchasePage.purchaseBackpack();
         purchasePage.purchaseTshirtRedButton();
         purchasePage.goBasket();
         basketPage.checkoutButton.click();
-        checkoutYourInformation.firstNameField.setValue(checkoutYourInformation.FIRST_NAME);
-        checkoutYourInformation.lastNameField.setValue(checkoutYourInformation.LAST_NAME);
-        checkoutYourInformation.zipPostalCodeField.setValue(checkoutYourInformation.ZIP_POSTAL_CODE);
+        checkoutYourInformation.checkoutYourInformation();
         checkoutYourInformation.continueButton.click();
         checkoutOverviewPage.finishButton.click();
         $("h2[class=\"complete-header\"]").shouldBe(visible);
@@ -71,7 +67,6 @@ public class TestMetod {
         LoginPage loginPage = new LoginPage();
         PurchasePage purchasePage = new PurchasePage();
         BasketPage basketPage = new BasketPage();
-        loginPage.openLoginPage();
         loginPage.login();
         purchasePage.purchaseBackpack();
         purchasePage.purchaseTshirtRedButton();
@@ -93,15 +88,12 @@ public class TestMetod {
         BasketPage basketPage = new BasketPage();
         CheckoutOverviewPage checkoutOverviewPage = new CheckoutOverviewPage();
         CheckoutYourInformation checkoutYourInformation = new CheckoutYourInformation();
-        loginPage.openLoginPage();
         loginPage.login();
         purchasePage.purchaseBackpack();
         purchasePage.purchaseTshirtRedButton();
         purchasePage.goBasket();
         basketPage.checkoutButton.click();
-        checkoutYourInformation.firstNameField.setValue(checkoutYourInformation.FIRST_NAME);
-        checkoutYourInformation.lastNameField.setValue(checkoutYourInformation.LAST_NAME);
-        checkoutYourInformation.zipPostalCodeField.setValue(checkoutYourInformation.ZIP_POSTAL_CODE);
+        checkoutYourInformation.checkoutYourInformation();
         checkoutYourInformation.continueButton.click();
         checkoutOverviewPage.cancelButton.click();
 
@@ -116,13 +108,12 @@ public class TestMetod {
     @Link("https://iliatokmurzin.atlassian.net/browse")
     @Test
     @Order(5)
-    @DisplayName("cancellation of purchase")
+
 
     public void cancellationOfPurchase() {
 
         LoginPage loginPage = new LoginPage();
         PurchasePage purchasePage = new PurchasePage();
-        loginPage.openLoginPage();
         loginPage.login();
         purchasePage.purchaseBackpack();
         purchasePage.purchaseTshirtRedButton();

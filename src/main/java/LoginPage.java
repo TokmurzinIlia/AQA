@@ -15,15 +15,10 @@ public class LoginPage {
 
     @Step("Login")
     public void login() {
-
+        open("https://www.saucedemo.com/");
         loginField.sendKeys(USERNAME);
         passwordField.sendKeys(PASSWORD);
         signInButton.click();
     }
-    @Step("Open Login Page")
-    public void openLoginPage(){
 
-        open("https://www.saucedemo.com/");
-
-    }
 }
