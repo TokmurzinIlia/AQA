@@ -15,7 +15,7 @@ public class Connect {
 
     public static Connection connectToDB() {
 
-            // открытие коннекта к MySQL server
+
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
@@ -89,9 +89,9 @@ public class Connect {
             stmt = connectToDB().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 
             rs = stmt.executeQuery(query);
-            //перемещение курсора к следующемей строке значений, удовлетворяющих запросу
+
             rs.next();
-            //логирование результатов запроса
+
 
         } catch (SQLException se) {
 
@@ -99,14 +99,8 @@ public class Connect {
         return rs;
     }
 
-    //метод необязательный, приведен в качестве примера
-    //логирование результатов запроса
-    private static void addSQLRequestResultsToLog(String query) {
-        StringBuilder builder = new StringBuilder();
-        DSL.using(connectToDB()).fetchStream(query)
-                .forEach(r -> builder.append(r.format()));
 
-    }
+
 
     public static void insertIntoTable(String query) {
         try {
